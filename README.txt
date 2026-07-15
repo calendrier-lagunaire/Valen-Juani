@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Invitación al casamiento de Valen y Juani">
+  <title>Valen & Juani</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260715-9">
+</head>
+<body class="locked">
+  <canvas id="riceToss" aria-hidden="true"></canvas>
+  <div class="entrance" id="entrance" role="dialog" aria-modal="true" aria-label="Bienvenida">
+    <div class="entrance__content">
+      <h1 data-content="names">VALEN & JUANI</h1>
+      <p>NUESTRA HISTORIA DE AMOR MERECE SER CELEBRADA CON QUIENES MÁS QUEREMOS</p>
+      <button class="button entrance__button" id="enterButton">INGRESAR</button>
+    </div>
+  </div>
+
+  <main id="content" aria-hidden="true">
+    <button class="sound" id="soundButton" aria-label="Activar o pausar música">♪</button>
+    <audio id="backgroundMusic" src="assets/say-you-wont-let-go.mp3" preload="metadata" loop></audio>
+
+    <section class="opening-photo reveal" aria-label="Fotografía principal">
+      <img data-photo="0" alt="Valen y Juani">
+    </section>
+
+    <section class="countdown section section--white reveal">
+      <h2>¡NOS CASAMOS!</h2>
+      <div class="countdown__grid" id="countdown" aria-label="Cuenta regresiva">
+        <div><strong data-unit="days">000</strong><span>DÍAS</span></div><i>:</i>
+        <div><strong data-unit="hours">00</strong><span>HORAS</span></div><i>:</i>
+        <div><strong data-unit="minutes">00</strong><span>MINUTOS</span></div><i>:</i>
+        <div><strong data-unit="seconds">00</strong><span>SEGUNDOS</span></div>
+      </div>
+    </section>
+
+    <section class="statement section section--green reveal">
+      <span class="ornament-line" aria-hidden="true"></span>
+      <p>DESPUÉS DE MUCHO PENSARLO (UNOS CINCO SEGUNDOS), DECIDIMOS CASARNOS.<br>¡VENGAN A CELEBRARLO CON NOSOTROS!</p>
+      <span class="ornament-line" aria-hidden="true"></span>
+    </section>
+
+    <section class="gallery reveal" aria-label="Nuestras fotografías">
+      <div class="carousel" id="carousel">
+        <div class="carousel__track" id="carouselTrack"></div>
+      </div>
+      <div class="carousel__dots" id="carouselDots" aria-label="Elegir fotografía"></div>
+    </section>
+
+    <section class="details section section--white">
+      <article class="detail reveal">
+        <div class="calendar-icon" aria-label="Calendario: día 7"><span id="calendarDay">1</span></div>
+        <h3>¿CUÁNDO?</h3>
+        <p data-content="dateLabel">7 DE MAYO 2027</p>
+      </article>
+      <article class="detail detail--green reveal">
+        <img class="line-icon" src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-1.gif" alt="">
+        <h3>¿DÓNDE?</h3>
+        <p data-content="venue">SALÓN LA GUADALUPE, LULUNTA, MAIPÚ</p>
+        <a class="button button--light" data-link="map" href="#">CÓMO LLEGAR</a>
+      </article>
+    </section>
+
+    <section class="itinerary section section--white">
+      <h2 class="reveal">ITINERARIO</h2>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="dress section section--green reveal">
+      <img class="line-icon" src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-20.gif" alt="">
+      <span>DRESS CODE</span>
+      <h2>FORMAL</h2>
+      <p>EL COLOR <strong>BLANCO</strong> SE RESERVA<br>EXCLUSIVAMENTE PARA LA NOVIA</p>
+    </section>
+
+    <section class="service section section--white reveal">
+      <img class="line-icon" src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/2e2e2e-gris-oscuro-icono-6.gif" alt=""><h2>QUEREMOS VER TUS FOTOS</h2>
+      <p>PUEDEN SUBIR TODAS SUS FOTOS DEL EVENTO<br>A NUESTRO ÁLBUM COMPARTIDO</p>
+      <a class="button" data-link="album" href="#">IR AL ÁLBUM</a>
+    </section>
+    <section class="service gift-service section section--white reveal">
+      <div class="gift-icon" aria-hidden="true"><span></span></div>
+      <h2>REGALO</h2>
+      <p>EL MEJOR REGALO ES COMPARTIR ESTE DÍA CON USTEDES. PERO SI DESEAN HACERNOS UN OBSEQUIO, PUEDEN SUMARSE A NUESTRO PROYECTO.</p>
+      <button class="button gift-toggle" id="giftToggle" type="button" aria-expanded="false" aria-controls="bankData">VER DATOS</button>
+      <div class="bank-data" id="bankData" hidden><span>ALIAS</span><strong>ValenJuani2027</strong><span>CBU</span><strong>0110628830062819887815</strong></div>
+    </section>
+
+    <section class="rsvp section section--green">
+      <img class="line-icon reveal" src="https://latarjetadigital.com.ar/wp-content/uploads/2024/11/ffffff-blanco-icono-8.gif" alt="">
+      <h2 class="reveal">CONFIRMÁ TU ASISTENCIA</h2>
+      <p class="reveal">ANTES DEL 7 DE ABRIL</p>
+      <form id="rsvpForm" class="rsvp__form reveal">
+        <label>Nombre y apellido *<input name="fullName" required></label>
+        <fieldset><legend>¿Vas a asistir a nuestra boda? *</legend><label><input type="radio" name="attendance" value="Sí, voy a asistir 🤍" checked> Sí, voy a asistir 🤍</label><label><input type="radio" name="attendance" value="No podré asistir"> No podré asistir</label></fieldset>
+        <label>¿Cuántas personas asistirán en total? Incluyéndote a vos *<select name="guests" required><option value="1">1 persona</option><option value="2">2 personas</option><option value="3">3 personas</option><option value="4">4 personas</option><option value="5">5 personas</option><option value="6">6 personas</option></select></label>
+        <label>¿Tenés alguna restricción alimentaria? *<select name="food" required><option>Ninguna</option><option>Menú sin TACC</option><option>Menú Vegetariano</option></select></label>
+        <label>Si querés dejarnos un mensaje, lo leemos con mucho cariño 🤍<textarea name="message" rows="4"></textarea></label>
+        <button class="button button--light" type="submit">CONFIRMAR</button>
+        <p class="rsvp__message" id="formMessage" role="status"></p>
+      </form>
+    </section>
+
+    <footer class="footer section section--white">
+      <img data-photo="2" alt="Valen y Juani">
+      <h2 data-content="names">VALEN & JUANI</h2>
+      <p>¡NO TE PIERDAS EL FIESTÓN!</p>
+    </footer>
+  </main>
+  <script src="script.js?v=20260715-9"></script>
+</body>
+</html>
