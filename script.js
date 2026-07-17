@@ -1,10 +1,15 @@
 /* Editá únicamente este bloque para personalizar la invitación. */
 const INVITATION = {
   names: "VALEN & JUANI",
-  weddingDate: "2027-05-07T19:00:00-03:00",
-  dateLabel: "7 DE MAYO 2027",
+  weddingDate: "2027-05-08T17:30:00-03:00",
+  dateLabel: "8 DE MAYO 2027",
   venue: "SALÓN LA GUADALUPE, LULUNTA, MAIPÚ",
-  links: { map: "https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+La+Guadalupe%2C+Lulunta%2C+Maip%C3%BA%2C+Mendoza", album: "#", gift: "#" },
+  links: {
+    church: "https://maps.app.goo.gl/3xGE7cPdjqkrC7Xk6?g_st=aw",
+    map: "https://www.google.com/maps/search/?api=1&query=Sal%C3%B3n+La+Guadalupe%2C+Lulunta%2C+Maip%C3%BA%2C+Mendoza",
+    album: "https://drive.google.com/drive/folders/1wGe25RbPjEdvoqAK8DmPDA7PVCMxbLoj",
+    gift: "#"
+  },
   googleFormAction: "https://docs.google.com/forms/d/e/1FAIpQLSd9ZTevViuHTSpcHsspT_hT8-7my2PINSS59RJSjbnlO-Be8A/formResponse",
   photos: [
     "https://latarjetadigital.com.ar/wp-content/uploads/2026/04/B-LUANAYNAZA2-819x1024.webp",
@@ -67,7 +72,7 @@ const calendarObserver = new IntersectionObserver(entries => entries.forEach(ent
       day += 1;
       calendarDay.textContent = day;
       calendarDay.classList.remove('is-flipping');
-      if (day === 7) { clearInterval(turnPage); calendarIcon.classList.remove('is-animating'); }
+      if (day === 8) { clearInterval(turnPage); calendarIcon.classList.remove('is-animating'); }
     }, 220);
   }, 620);
   calendarObserver.disconnect();
@@ -100,17 +105,6 @@ carousel.addEventListener('pointerdown', event => { startX = event.clientX; delt
 carousel.addEventListener('pointermove', event => { if (!startX) return; deltaX = event.clientX - startX; });
 carousel.addEventListener('pointerup', () => { if (Math.abs(deltaX) > 45) showSlide(current + (deltaX < 0 ? 1 : -1)); startX = 0; restartAutoplay(); });
 restartAutoplay();
-
-const giftToggle = document.querySelector('#giftToggle');
-const bankData = document.querySelector('#bankData');
-giftToggle.addEventListener('click', () => {
-  const opening = bankData.hidden;
-  bankData.hidden = false;
-  requestAnimationFrame(() => bankData.classList.toggle('is-visible', opening));
-  giftToggle.setAttribute('aria-expanded', String(opening));
-  giftToggle.textContent = opening ? 'OCULTAR DATOS' : 'VER DATOS';
-  if (!opening) setTimeout(() => { bankData.hidden = true; }, 380);
-});
 
 const observer = new IntersectionObserver(entries => entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold: .12 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));

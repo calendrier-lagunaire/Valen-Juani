@@ -41,3 +41,5 @@ body{overflow-x:hidden}.section p,.section h2,.section h3{overflow-wrap:anywhere
 .footer{padding:46px 0 70px;background:var(--green);color:#fff}.footer img{width:min(calc(100% - 48px),820px);border:9px solid #fff;filter:grayscale(1);box-shadow:0 14px 35px rgba(32,42,31,.2)}.footer h2,.footer p{color:#fff}
 @media(max-width:640px){.footer{padding:28px 0 56px}.footer img{width:calc(100% - 28px);border-width:7px;margin-bottom:46px}}
 #riceToss{position:fixed;inset:0;z-index:80;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity .65s ease-out}#riceToss.is-visible{opacity:1}
+.detail--green{min-height:455px}.detail--green .location-separator{margin:34px 0 18px;font-size:13px;letter-spacing:.08em}.detail--green .location-separator span{display:inline-block;margin-top:8px;font-size:15px;letter-spacing:0}.detail--green .button{min-width:230px}
+@media(max-width:480px){.detail--green{min-height:430px;padding-inline:14px}.detail--green .button{width:min(100%,290px);padding-inline:12px;font-size:11px}}
